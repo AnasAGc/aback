@@ -1,3 +1,5 @@
+
+const axios = require('axios');
 const{
     NewsSchema,
     News,
@@ -8,12 +10,21 @@ module.exports={
     getNews,
     removeNews,
     updateData,
-    
+    getAllData,
 }
 function home(req,res){
     res.send('hiiiii')
 }
 
+function getAllData(req,res){
+    
+    let url = `https://newsapi.org/v2/everything?q=tesla&from=2021-07-05&sortBy=publishedAt&apiKey=6d921101d84c4a80a66c2559721f7783`;
+    axios.get(url).then(result=>{
+        res.send(result.data)
+    })
+
+
+}
 function laterAdd(req,res){
 let {title,content,img}=req.body
 let artical=new News({

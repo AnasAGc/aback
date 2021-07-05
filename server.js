@@ -23,10 +23,12 @@ const {
     getNews,
     removeNews,
     updateData,
+    getAllData,
     
 }=require('./Moduls/Moduls.js')
 
 server.get('/',home)
+server.get('/alldata',getAllData)
 server.post('/addtolater',laterAdd)
 server.get('/getnews',getNews)
 server.delete('/delete',removeNews)
