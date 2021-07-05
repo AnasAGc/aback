@@ -77,13 +77,14 @@ function updateData(req,res){
     News.findOne({_id:id},(err,result)=>{
         result.title=title;
         result.content=content;
-        result.save();
+        result.save()
+        .then(
+            News.find({},(err,data)=>{
+                res.send(data)
+            })
+        
+        )
     })
 
-    .then(
-        News.find({},(err,data)=>{
-            res.send(data)
-        })
-    
-    )
+   
 }
