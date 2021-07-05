@@ -78,12 +78,15 @@ function updateData(req,res){
         result.title=title;
         result.content=content;
         result.save()
-        .then(
+        .then(()=>{
+            
             News.find({},(err,data)=>{
                 res.send(data)
             })
         
-        )
+        })
+           
+        
     })
 
    
